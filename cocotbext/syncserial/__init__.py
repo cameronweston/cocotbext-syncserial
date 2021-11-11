@@ -23,4 +23,4 @@ SOFTWARE.
 """
 
 from .version import __version__
-from .syncserial import SyncSerialSource, SyncSerialSink
+from .syncserial import SyncSerialSource, SyncSerialSink, Crc_16
