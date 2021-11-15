@@ -1,4 +1,7 @@
 # HDLC encoded Synchronous Serial interface modules for Cocotb
+[![Build Status](https://github.com/cameronweston/cocotbext-syncserial/workflows/Regression%20Tests/badge.svg?branch=main)](https://github.com/cameronweston/cocotbext-syncserial/actions/)
+[![codecov](https://codecov.io/gh/cameronweston/cocotbext-syncserial/branch/main/graph/badge.svg)](https://codecov.io/gh/cameronweston/cocotbext-syncserial)
+[![PyPI version](https://badge.fury.io/py/cocotbext-syncserial.svg)](https://badge.fury.io/py/cocotbext-syncserial)
 
 ## Introduction
 

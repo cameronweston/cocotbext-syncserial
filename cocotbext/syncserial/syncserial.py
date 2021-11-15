@@ -221,7 +221,7 @@ class SyncSerialSink:
         byte = 0
         bit_location = 0
         isIdleFlag = False
-        if num_ones is not 5:
+        if num_ones != 5:
             dropNextZero = False
         else:
             dropNextZero = True

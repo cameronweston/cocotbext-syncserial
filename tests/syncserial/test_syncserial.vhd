@@ -24,13 +24,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity tb_syncserial is
+entity test_syncserial is
   port(
       clk   : inout std_logic;
       data  : inout std_logic
   );
-end tb_syncserial;
+end test_syncserial;
 
-architecture tb of tb_syncserial is
+architecture tb of test_syncserial is
 begin
 end tb;

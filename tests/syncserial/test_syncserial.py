@@ -34,7 +34,7 @@ from cocotb.regression import TestFactory
 
 from cocotbext.syncserial import SyncSerialSource, SyncSerialSink, Crc_16
 
-class Testbench:
+class TB:
     def __init__(self, dut):
         self.dut = dut
 
@@ -48,7 +48,7 @@ class Testbench:
         self.sync_sink.log.setLevel(logging.INFO)
 
 async def run_simple_test(dut, pkt):
-    tb = Testbench(dut)
+    tb = TB(dut)
 
     await Timer(1,'us')
 
@@ -61,7 +61,7 @@ async def run_simple_test(dut, pkt):
     assert rcv_pkt == pkt
 
 async def run_multiple_test(dut, pkt, num_pkts):
-    tb = Testbench(dut)
+    tb = TB(dut)
 
     await Timer(1, 'us')
 
@@ -74,7 +74,7 @@ async def run_multiple_test(dut, pkt, num_pkts):
         rcv = await tb.sync_sink.read()
         assert rcv == pkt
 
-def test_packet_generator(sizes):
+def packet_generator(sizes):
     test_pkts = []
     for size in sizes:
         # Packets
@@ -96,7 +96,7 @@ if cocotb.SIM_NAME:
     size = [256, 1028, randint(1, 4096)]
     num_pkts = [randint(2,10)]
 
-    test_pkts = test_packet_generator(size)
+    test_pkts = packet_generator(size)
 
     factory = TestFactory(run_simple_test)
     factory.add_option("pkt", test_pkts)
@@ -111,7 +111,7 @@ if cocotb.SIM_NAME:
 tests_dir = os.path.dirname(__file__)
 
 def test_syncSerial(request):
-    dut = "tb_syncserial"
+    dut = "test_syncserial"
     module = os.path.splitext(os.path.basename(__file__))[0]
     toplevel = dut.lower()
 
